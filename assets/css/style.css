@@ -52,7 +52,7 @@ body, html {
 .flex-h-center {
   display: flex;
   justify-content: center;
-  align-items: center; /* ✅ active now stays centered */
+  align-items: center;
   flex-direction: column;
   min-height: 100vh;
   padding-bottom: 50px;
@@ -165,9 +165,9 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #000;     /* ✅ Solid black background */
+  background-color: #1e1e1e;   /* 🔹 lighter black/grey for better visibility */
   padding: 8px 14px;
-  border-radius: 25px;        /* ✅ Rounded edges */
+  border-radius: 25px;
   gap: 8px;
   width: 98%;
   max-width: 1200px;
@@ -180,7 +180,7 @@ body, html {
 }
 
 .sticky-search .search-bar label {
-  color: #fff;                /* ✅ File- text in white */
+  color: #fff;
   font-weight: 500;
   white-space: nowrap;
   margin: 0;
@@ -188,15 +188,16 @@ body, html {
 }
 
 .sticky-search .search-bar input#searchInput {
-  background: transparent;    /* ✅ blends into black box */
-  color: #fff;                /* ✅ input text white */
+  background: transparent;
+  color: #fff;
   border: none;
   outline: none;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   height: 26px;
-  width: 100%;                /* ✅ fill remaining space */
+  width: 100%;
 }
+
 /* ==========================
    Active Now (Centered with Sparkling Green Dot)
 ========================== */
@@ -230,6 +231,7 @@ body, html {
     opacity: 0.6;
   }
 }
+
 /* ==========================
    File Grid
 ========================== */
@@ -257,7 +259,7 @@ body, html {
   color: black;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer; /* ✅ clickable */
+  cursor: pointer;
 }
 
 .file-card:hover {
@@ -288,4 +290,48 @@ body, html {
   .search-wrapper input { width: 140px; }
   .file-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .link-each-image { height: 100px; }
+}  /* ✅ closed properly */
+
+/* ==========================
+   Category Boxes (Japanese / Desi)
+========================== */
+.category-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.category-card {
+  padding: 8px 20px;
+  border: 2px solid violet;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.category-card:hover {
+  background-color: rgba(238, 130, 238, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   Pagination Boxes (Bottom Links)
+========================== */
+.next-page {
+  border: 2px solid violet !important;
+  background: transparent !important;
+  color: violet !important;
+  justify-content: center;
+}
+
+.next-page span {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
 }
