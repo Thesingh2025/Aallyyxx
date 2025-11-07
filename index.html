@@ -5,13 +5,13 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/webp">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
   <link rel="icon" href="assets/images/favicon.png" type="image/webp">
   <title>Dega Videos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Keep this section if you still have the stars CSS. If not, it's harmless. -->
+  <!-- Animated background stars -->
   <section class="animated-background">
     <div id="stars1"></div>
     <div id="stars2"></div>
@@ -25,25 +25,30 @@
       <h2 class="page-title">Dega Video</h2>
 
       <div class="active-now">
-  <div class="dot"></div> Active now
-</div>
+        <div class="dot"></div> Active now
+      </div>
 
       <div class="social-bounce">
         <a href="https://t.me/degavideos" target="_blank">
           <span>Telegram</span>
-          <img class="social-icon" src="https://i.postimg.cc/DZ6kGN17/icons8-telegram-150.png" alt="Telegram">
+          <img class="social-icon" src="https://i.postimg.cc/DZ6kGN17/icons8-telegram-1.png" alt="Telegram">
         </a>
-        <a href="https://instagram.com/dega_videos" target="_blank">
+        <a href="https://instagram.com/meaadi" target="_blank">
           <span>Instagram</span>
-          <img class="social-icon" src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+          <img class="social-icon" src="https://cdn-icons-png.flaticon.com/512/174.png" alt="Instagram">
         </a>
       </div>
     </div>
 
-    <!-- Sticky, slim, almost-full-width search bar -->
+    <!-- Category Boxes (Japanese / Desi) -->
+    <div class="category-boxes">
+      <a href="japanese.html" class="category-card">Japanese</a>
+      <a href="desi.html" class="category-card">Desi</a>
+    </div>
+
+    <!-- Sticky Search Bar -->
     <div class="sticky-search">
       <div class="search-bar">
-        <!-- search icon -->
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#9D9D9D" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28h.79l5 5L20.49 19l-5-5zM5 9.5C5 7.01 7.01 5 9.5 5S14 7.01 14 9.5 11.99 14 9.5 14 5 11.99 5 9.5z"/>
         </svg>
@@ -60,6 +65,8 @@
 
     <!-- File grid: 2 per row on phones, 4 on bigger screens -->
     <div class="file-grid" id="fileGrid">
+
+      <!-- Example file links -->
       <a class="file-card" target="_blank" href="https://1024terabox.com/s/1uUnbWBp03Z9GuiNlSFVIDQ">
         <img src="https://i.postimg.cc/90jms3jZ/IMG-4810.jpg" alt="File-39 Image">
         <span>File-39</span>
@@ -230,7 +237,17 @@
       <a class="file-card" target="_blank" href="https://1024terabox.com/s/1N4SxnuVY5yANbVvPPd7o9Q">
         <img src="https://i.postimg.cc/v8nR3Qvj/IMG-3722.jpg" alt="File-1 Image">
         <span>File-1</span>
+       </a>
+      
+      <!-- Pagination Boxes -->
+      <a class="file-card next-page" href="page2.html">
+        <span>Next → (101–200)</span>
       </a>
+
+      <a class="file-card next-page" href="page3.html">
+        <span>→ (201–300)</span>
+      </a>
+
     </div>
   </div>
 
@@ -245,6 +262,6 @@
   </script>
 
   <!-- Cloudflare Web Analytics -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3b9c4ef5423e4b1f82cfd8a16de419c6"}'></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3b969ef5423e4b1f82c529383693"}'></script>
 </body>
 </html>
