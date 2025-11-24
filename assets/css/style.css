@@ -195,3 +195,37 @@ body, html {
   .category-card { padding:12px 24px; font-size:14px; }
   .new-star { font-size:9px; top:-10px; left:-10px; }
 }
+/* ----- Ad block styling: keep ad full-row, centered & responsive ----- */
+.ad-card {
+  grid-column: 1 / -1;        /* force ad to span entire grid row */
+  display: flex;
+  justify-content: center;    /* center the ad inside the row */
+  align-items: center;
+  padding: 8px 0;
+  min-width: 0;               /* allow children to shrink properly */
+  overflow: hidden;           /* prevent ad from forcing horizontal layout */
+}
+
+/* wrapper that contains the ad script/iframe */
+.ad-inner {
+  width: 320px;               /* default ad width (matches script) */
+  max-width: 100%;            /* never exceed container width on small screens */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+/* ensure iframe produced by the script becomes responsive if possible */
+.ad-card iframe,
+.ad-card script + iframe,
+.ad-inner iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* On larger screens keep the ad at its intended size */
+@media (min-width: 900px) {
+  .ad-inner { width: 320px; } /* desktop: exact width */
+}
