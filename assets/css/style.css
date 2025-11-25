@@ -178,6 +178,56 @@ body, html {
 }
 .next-page {display:flex !important;}
 
+/* ========================== AD CARD (MATCH POST BOXES) ========================== */
+.ad-card {
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+
+  background:white;
+  color:black;
+  border-radius:12px;
+  padding:10px;
+  text-decoration:none;
+
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  transition:transform .2s, box-shadow .2s;
+  cursor:default;
+}
+.ad-card:hover {
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.ad-card > #container-6d485335009bc8f6e7f3a96c452c755f {
+  display:block;
+  width:100%;
+  min-height:70px;
+  max-height:150px;
+  overflow:hidden;
+}
+
+.ad-card iframe {
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+  display:block;
+}
+
+.ad-card img {
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+@media (max-width:600px) {
+  .ad-card { padding:8px; }
+  .ad-card > #container-6d485335009bc8f6e7f3a96c452c755f {
+    min-height:60px;
+  }
+}
+
 /* ========================== Footer Text ========================== */
 .footer-note {
   text-align:center;
@@ -194,77 +244,4 @@ body, html {
   .file-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
   .category-card { padding:12px 24px; font-size:14px; }
   .new-star { font-size:9px; top:-10px; left:-10px; }
-}
-/* ===== Ad tiles that visually match .file-card and reduce bottom gap ===== */
-/* Make ad-card look and size identical to .file-card */
-.ad-card {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: white;
-  border-radius: 12px;
-  padding: 10px;                  /* same as .file-card */
-  color: black;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
-  transition: transform .2s, box-shadow .2s;
-  min-height: 90px;               /* match typical file-card height (img 70 + padding) */
-  box-sizing: border-box;
-  cursor: default;
-}
-
-/* hover effect same as file-card */
-.ad-card:hover{ transform: translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,.15); }
-
-/* inner wrapper keeps the ad content centered and prevents extra vertical gap */
-.ad-inner {
-  width: 100%;
-  max-width: calc(100% - 10px);   /* give slight breathing room */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;                   /* same as the file-card image height */
-  min-height: 70px;
-  overflow: hidden;
-  box-sizing: border-box;
-  background: transparent;
-}
-
-/* ensure iframe or ad elements don't overflow or force extra height */
-.ad-inner iframe,
-.ad-inner script + iframe,
-.ad-inner div {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: 50px !important;        /* your ad iframe height (matches atOptions height) */
-  max-height: 50px !important;
-  display: block;
-  border: none !important;
-}
-
-/* For networks that render <ins> or other elements, apply generic rules */
-.ad-inner * { max-width: 100% !important; box-sizing: border-box; }
-
-/* make sure ad tile occupies one grid cell and keeps spacing consistent */
-.file-grid .ad-card {
-  justify-self: stretch;          /* follow grid cell width */
-}
-
-/* Hide the extra ad tiles on small screens (we want 2 on phone) */
-.ad-desktop-only { display: none; }
-
-/* Responsive rules: grid already defined earlier; ensure behavior at breakpoints */
-/* At larger screens (>= 900px) show 4 ads */
-@media (min-width: 900px) {
-  .ad-desktop-only { display: block; }
-  /* adjust heights if you want slightly taller cards on large screens */
-  .ad-inner { height: 70px; min-height:70px; }
-}
-
-/* Small screens: 2 columns (your existing rule already does this),
-   ensure ad tiles don't leave extra vertical gap */
-@media (max-width: 600px) {
-  .ad-card { padding: 8px; min-height: 84px; }
-  .ad-inner { height: 64px; min-height:64px; }
-  .ad-inner iframe { height: 44px !important; max-height:44px !important; }
 }
