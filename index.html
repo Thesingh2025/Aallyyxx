@@ -97,71 +97,14 @@
   <img src="" alt="File-317 Image">
   <span>Post-317</span>
 </a>
-		
-<!-- ===== Ads: 4 ad tiles (visible responsively: 2 on phone, 4 on desktop) ===== -->
-<!-- These are file-grid items, styled to look exactly like .file-card -->
-<!-- Place this block between Post-327 and Post-328 -->
-<div class="ad-card" data-ad-index="1">
-  <div class="ad-inner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '6d072f375c5c3d181641630ed5368d01',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-  </div>
-</div>
+<!-- =============== AD INSERTED HERE (Before Post-327) =============== -->
+      <div class="file-card ad-card" role="complementary" aria-label="Advertisement">
+        <script async="async" data-cfasync="false"
+                src="//pl28130626.effectivegatecpm.com/6d485335009bc8f6e7f3a96c452c755f/invoke.js"></script>
 
-<div class="ad-card" data-ad-index="2">
-  <div class="ad-inner">
-    <!-- repeat same ad script or second ad key if you have another -->
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '6d072f375c5c3d181641630ed5368d01',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-  </div>
-</div>
-
-<div class="ad-card ad-desktop-only" data-ad-index="3">
-  <div class="ad-inner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '6d072f375c5c3d181641630ed5368d01',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-  </div>
-</div>
-
-<div class="ad-card ad-desktop-only" data-ad-index="4">
-  <div class="ad-inner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '6d072f375c5c3d181641630ed5368d01',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-  </div>
-</div>
-<!-- ===== end ads block ===== -->
+        <div id="container-6d485335009bc8f6e7f3a96c452c755f"></div>
+      </div>
+      <!-- ======================= END AD ======================= -->
 <a class="file-card" target="_blank" href="">
   <img src="" alt="File-316 Image">
   <span>Post-316</span>
@@ -316,16 +259,17 @@
       All contents are indexed from Internet. Contact us to remove.<br>
       We have Policy of instant removal of any content.
     </footer>
-
   </div>
-
+   <!-- Filter Script (keeps ad visible) -->
   <script>
     function filterFiles() {
       const q = document.getElementById('searchInput').value.trim().toLowerCase();
       document.querySelectorAll('.file-card').forEach(card => {
-        const title = card.querySelector('span').textContent.toLowerCase();
-        // Always show pagination boxes
-        if (card.classList.contains('next-page')) {
+        const titleSpan = card.querySelector('span');
+        const title = titleSpan ? titleSpan.textContent.toLowerCase() : '';
+
+        // Always show pagination & ads
+        if (card.classList.contains('next-page') || card.classList.contains('ad-card')) {
           card.style.display = 'flex';
         } else {
           card.style.display = (q === '' || title.includes(q)) ? 'flex' : 'none';
