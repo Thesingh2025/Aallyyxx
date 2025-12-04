@@ -1,334 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/webp">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
-  <link rel="icon" href="assets/images/favicon.png" type="image/webp">
-  <title>Alyx Play</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Satav</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        nav a {
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        .subscribe-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .subscribe-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .featured {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .lead-story {
+            flex: 2;
+        }
+        .lead-image {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+        .lead-content {
+            padding: 1rem 0;
+        }
+        .category-tag {
+            color: #007bff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .headline {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        .summary {
+            color: #666;
+        }
+        .date {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        .top-headlines {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .headline-card {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .headline-card:hover {
+            transform: translateY(-2px);
+        }
+        .headline-card .headline {
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 2rem;
+        }
+        .section-heading {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .article-card {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .article-card:hover {
+            transform: translateY(-2px);
+        }
+        .article-image {
+            height: 150px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .article-content {
+            padding: 1rem;
+        }
+        .article-category {
+            color: #007bff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .article-headline {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .article-summary {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .article-meta {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        .sidebar a {
+            display: block;
+            padding: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .featured {
+                flex-direction: column;
+            }
+            .top-headlines {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                margin-bottom: 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .top-headlines {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">The Satav</div>
+            <nav>
+                <ul>
+                    <li><a href="#">India</a></li>
+                    <li><a href="#">Politics</a></li>
+                    <li><a href="#">World News</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Science</a></li>
+                    <li><a href="#">Opinions</a></li>
+                </ul>
+            </nav>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+    </header>
 
-  <!-- Animated star background -->
-  <section class="animated-background">
-    <div id="stars1"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-  </section>
+    <main>
+        <section class="featured">
+            <article class="lead-story">
+                <div class="lead-image">Image Placeholder</div>
+                <div class="lead-content">
+                    <span class="category-tag">India</span>
+                    <h1 class="headline">Major Breakthrough in Renewable Energy Sector</h1>
+                    <p class="summary">A new initiative promises to revolutionize the way we harness solar power across the nation.</p>
+                    <span class="date">October 15, 2023</span>
+                </div>
+            </article>
+            <div class="top-headlines">
+                <article class="headline-card">
+                    <span class="category-tag">Politics</span>
+                    <h2 class="headline">Election Results Shake Up the Political Landscape</h2>
+                    <span class="date">October 14, 2023</span>
+                </article>
+                <article class="headline-card">
+                    <span class="category-tag">World News</span>
+                    <h2 class="headline">Global Climate Summit Reaches Historic Agreement</h2>
+                    <span class="date">October 13, 2023</span>
+                </article>
+                <article class="headline-card">
+                    <span class="category-tag">Business</span>
+                    <h2 class="headline">Tech Giant Announces Record Profits</h2>
+                    <span class="date">October 12, 2023</span>
+                </article>
+                <article class="headline-card">
+                    <span class="category-tag">Sports</span>
+                    <h2 class="headline">Championship Finals Set for Epic Showdown</h2>
+                    <span class="date">October 11, 2023</span>
+                </article>
+                <article class="headline-card">
+                    <span class="category-tag">Entertainment</span>
+                    <h2 class="headline">Blockbuster Movie Breaks Box Office Records</h2>
+                    <span class="date">October 10, 2023</span>
+                </article>
+                <article class="headline-card">
+                    <span class="category-tag">Technology</span>
+                    <h2 class="headline">New Gadget Revolutionizes Daily Life</h2>
+                    <span class="date">October 9, 2023</span>
+                </article>
+            </div>
+        </section>
 
-  <div class="container">
-    <!-- Top: profile, title, verified badge, status, socials -->
-    <div class="top-center">
-      <img class="display-image" src="assets/images/dega.png" alt="Display Image">
-      <h2 class="page-title">
-        Alyx Play
-        <span class="verified-badge" title="Verified">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#1da1f2">
-            <circle cx="12" cy="12" r="10" fill="#1da1f2"/>
-            <path fill="#fff" d="M10.8 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3.5-3.5 1.1 1.1z"/>
-          </svg>
-        </span>
-      </h2>
+        <section>
+            <h2 class="section-heading">India</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">Image Placeholder</div>
+                    <div class="article-content">
+                        <span class="article-category">India</span>
+                        <h3 class="article-headline">Cultural Festival Draws Massive Crowds</h3>
+                        <p class="article-summary">Festivals across the country celebrate diversity and tradition.</p>
+                        <div class="article-meta">By Jane Doe | October 8, 2023</div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-image">Image Placeholder</div>
+                    <div class="article-content">
+                        <span class="article-category">India</span>
+                        <h3 class="article-headline">Economic Reforms Boost Growth</h3>
+                        <p class="article-summary">New policies aim to strengthen the economy.</p>
+                        <div class="article-meta">By John Smith | October 7, 2023</div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-image">Image Placeholder</div>
+                    <div class="article-content">
+                        <span class="article-category">India</span>
+                        <h3 class="article-headline">Wildlife Conservation Efforts Succeed</h3>
+                        <p class="article-summary">Protected areas see increase in endangered species.</p>
+                        <div class="article-meta">By Alice Brown | October 6, 2023</div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-      <div class="active-now">
-        <div class="dot"></div> Active now
-      </div>
+        <section>
+            <h2 class="section-heading">Politics</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">Image Placeholder</div>
+                    <div class="article-content">
+                        <span class="article-category">Politics</span>
+                        <h3 class="article-headline">New Policy on Education Announced</h3>
+                        <p class="article-summary">Government outlines plans for better schooling.</p>
+                        <div class="article-meta">By Bob Wilson | October 5, 2023</div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-image">Image Placeholder</div>
+                    <div class="article-content">
+                        <span class="article-category">Politics</span>
+                        <h3 class="article-headline">International Relations Strengthen</h3>
+                        <p class="article-summary">Diplomatic ties improve with neighboring countries.</p>
+                        <div class="article-meta">By Carol Davis | October 4, 2023</div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-      <div class="social-bounce">
-        <a href="https://t.me/alyx_play" target="_blank">
-          <span>Telegram</span>
-          <img class="social-icon" src="https://i.postimg.cc/DZ6kGN17/icons8-telegram-1.png" alt="Telegram">
-        </a>
-        <a href="https://instagram.com/alyx_play" target="_blank">
-          <span>Instagram</span>
-          <img class="social-icon" src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-        </a>
-      </div>
-    </div>
+        <aside class="sidebar">
+            <h3>Trending</h3>
+            <ul>
+                <li><a href="#">Top Story 1</a></li>
+                <li><a href="#">Top Story 2</a></li>
+                <li><a href="#">Top Story 3</a></li>
+                <li><a href="#">Top Story 4</a></li>
+            </ul>
+            <h3>Latest</h3>
+            <ul>
+                <li><a href="#">Latest Headline 1</a></li>
+                <li><a href="#">Latest Headline 2</a></li>
+                <li><a href="#">Latest Headline 3</a></li>
+            </ul>
+        </aside>
+    </main>
 
-    <!-- Category Boxes -->
-    <div class="category-boxes">
-      <a href="japanese.html" class="category-card">
-        Japanese(JAV)
-        <span class="new-star">NEW</span>
-      </a>
-      <a href="desi.html" class="category-card">
-        Desi Webseries
-        <span class="new-star">NEW</span>
-      </a>
-    </div>
-
-    <!-- Sticky Search -->
-    <div class="sticky-search">
-      <div class="search-bar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#9D9D9D" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28h.79l5 5L20.49 19l-5-5zM5 9.5C5 7.01 7.01 5 9.5 5S14 7.01 14 9.5 11.99 14 9.5 14 5 11.99 5 9.5z"/>
-        </svg>
-        <label for="searchInput">Post-</label>
-        <input id="searchInput" type="number" placeholder="Search Post no. Here"
-               oninput="filterFiles()" autocomplete="off"/>
-      </div>
-    </div>
-
-    <!-- File grid -->
-    <div class="file-grid" id="fileGrid">
-
-      <!-- Example files -->
-      <!-- Example posts from Post-320 to Post-118 -->
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-320 Image">
-  <span>Post-320</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-319 Image">
-  <span>Post-319</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-318 Image">
-  <span>Post-318</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-317 Image">
-  <span>Post-317</span>
-</a>
-<!-- ===================== AD SLOTS (4 grid cells) =====================
-           They are regular .file-card items so they match size/spacing of posts.
-           On desktop: 4 columns -> 4 ad cards side-by-side
-           On mobile: 2 columns -> 2 ad cards side-by-side
-      ==================================================================== -->
-
-      <!-- AD SLOT 1: NATIVE AD (your original snippet & container) -->
-      <div class="file-card ad-card" role="complementary" aria-label="Advertisement slot 1">
-        <!-- Native ad script + container (kept exactly as provided) -->
-        <script async="async" data-cfasync="false"
-                src="//pl28130626.effectivegatecpm.com/6d485335009bc8f6e7f3a96c452c755f/invoke.js"></script>
-        <div id="container-6d485335009bc8f6e7f3a96c452c755f"></div>
-      </div>
-
-      <!-- AD SLOT 2: BANNER AD (banner snippet you provided) -->
-      <div class="file-card ad-card" role="complementary" aria-label="Advertisement slot 2">
-        <!-- Banner ad snippet (slot 2) -->
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6d072f375c5c3d181641630ed5368d01',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-        <!-- container: ad provider will inject iframe here; CSS below makes iframe responsive to card -->
-      </div>
-
-      <!-- AD SLOT 3: BANNER AD (duplicated) -->
-      <div class="file-card ad-card" role="complementary" aria-label="Advertisement slot 3">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6d072f375c5c3d181641630ed5368d01',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-      </div>
-
-      <!-- AD SLOT 4: BANNER AD (duplicated) -->
-      <div class="file-card ad-card" role="complementary" aria-label="Advertisement slot 4">
-        <script type="text/javascript">
-          atOptions = {
-            'key' : '6d072f375c5c3d181641630ed5368d01',
-            'format' : 'iframe',
-            'height' : 50,
-            'width' : 320,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="//www.highperformanceformat.com/6d072f375c5c3d181641630ed5368d01/invoke.js"></script>
-      </div>
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-316 Image">
-  <span>Post-316</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-315 Image">
-  <span>Post-315</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-314 Image">
-  <span>Post-314</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-313 Image">
-  <span>Post-313</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-312 Image">
-  <span>Post-312</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-311 Image">
-  <span>Post-311</span>
-</a>
-
-<!-- keep same format below -->
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-310 Image">
-  <span>Post-310</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-309 Image">
-  <span>Post-309</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-308 Image">
-  <span>Post-308</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-307 Image">
-  <span>Post-307</span>
-</a>
-
-<a class="file-card" target="_blank" href="">
-  <img src="" alt="File-306 Image">
-  <span>Post-306</span>
-</a>
-      <a class="file-card" target="_blank" href="https://1024terabox.com/s/1aBnmW1VWchbHFh_esMuzAw">
-  <img src="https://i.postimg.cc/XqnBDK6L/Post-117.jpg" alt="File-117 Image">
-  <span>Post-117</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1VO3j2GIW9PsWCSn9moZatQ">
-  <img src="https://i.postimg.cc/ZRm1dfSB/116.jpg" alt="File-116 Image">
-  <span>Post-116</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1j7Mum7jCh0Gk8eXdgN6u-g">
-  <img src="https://i.postimg.cc/j2wjRFBt/115.png" alt="File-115 Image">
-  <span>Post-115</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1oBGEfP4ayrr8GgguDciWGQ">
-  <img src="https://i.postimg.cc/q7wqwn8V/114.jpg" alt="File-114 Image">
-  <span>Post-114</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1PlcneuINLAEpUhqRD_2tkA">
-  <img src="https://i.postimg.cc/mkvgkSGM/113.jpg" alt="File-113 Image">
-  <span>Post-113</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1YJR13XCgzfGY5W6dGtoheQ">
-  <img src="https://i.postimg.cc/jqm5MRJ5/112.jpg" alt="File-112 Image">
-  <span>Post-112</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1mHw0fhIEPyf3GuDsTmTB9Q">
-  <img src="https://i.postimg.cc/bwXZwqzM/111.jpg" alt="File-111 Image">
-  <span>Post-111</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1c38SWS8aS6VjtSDK3RBtgw">
-  <img src="https://i.postimg.cc/7ZyLyX9r/110.jpg" alt="File-110 Image">
-  <span>Post-110</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1JFuDcjg3gdiovXdRU6-KvQ">
-  <img src="https://i.postimg.cc/FRKRBRZf/109.jpg" alt="File-109 Image">
-  <span>Post-109</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1wVoo4DwpzbSCjKB1oS1I8w">
-  <img src="https://i.postimg.cc/pLYLV8ch/108.jpg" alt="File-108 Image">
-  <span>Post-108</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1GjlKT_hA3sXH8izTXO3XUQ">
-  <img src="https://i.postimg.cc/pXjd73DB/107.jpg" alt="File-107 Image">
-  <span>Post-107</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1vYFhnd_kcTJ3b6nOZc6EaQ">
-  <img src="https://i.postimg.cc/LXh9VW9L/106.jpg" alt="File-106 Image">
-  <span>Post-106</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1G3wcZHr_4zdoLpHgb53ufQ">
-  <img src="https://i.postimg.cc/C161TgPc/105.jpg" alt="File-105 Image">
-  <span>Post-105</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1P5zyi6A70I5lKsMH6y5DXA">
-  <img src="https://i.postimg.cc/G9nbdhkx/104.jpg" alt="File-104 Image">
-  <span>Post-104</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1C52zV3d4VtEbRxGYSwiV-Q">
-  <img src="https://i.postimg.cc/jqwNxgHD/103.jpg" alt="File-103 Image">
-  <span>Post-103</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1mrncggozjh6d8cy1Nz927g">
-  <img src="https://i.postimg.cc/5t4NX0DP/102.jpg" alt="File-102 Image">
-  <span>Post-102</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/1aHtDwTeVXyFacRtljCLBnw">
-  <img src="https://i.postimg.cc/JhYDmZt3/101.jpg" alt="File-101 Image">
-  <span>Post-101</span>
-</a>
-
-<a class="file-card" target="_blank" href="https://1024terabox.com/s/11azfnlg97ifv-2kzXRQeUQ">
-  <img src="https://i.postimg.cc/1XqykNNz/100.jpg" alt="File-100 Image">
-  <span>Post-100</span>
-</a>  
-      <!-- Pagination Boxes -->
-      <a class="file-card next-page" href="page2.html"><span>Next → (File-101 to 200)</span></a>
-      <a class="file-card next-page" href="page3.html"><span>→ (File-201 to 300)</span></a>
-    </div>
-
-    <!-- Footer notice -->
-    <footer class="footer-note">
-      All contents are indexed from Internet. Contact us to remove.<br>
-      We have Policy of instant removal of any content.
+    <footer>
+        <div class="footer-content">
+            <p>About The Satav: Your trusted source for news and updates from around the world.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
     </footer>
-  </div>
-   <!-- Filter Script (keeps ad visible) -->
-  <script>
-    function filterFiles() {
-      const q = document.getElementById('searchInput').value.trim().toLowerCase();
-      document.querySelectorAll('.file-card').forEach(card => {
-        const titleSpan = card.querySelector('span');
-        const title = titleSpan ? titleSpan.textContent.toLowerCase() : '';
-
-        // Always show pagination & ads
-        if (card.classList.contains('next-page') || card.classList.contains('ad-card')) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = (q === '' || title.includes(q)) ? 'flex' : 'none';
-        }
-      });
-    }
-  </script>
-
-  <!-- Cloudflare Web Analytics -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token":"3b969ef5423e4b1f82c529383693"}'></script>
 </body>
 </html>
